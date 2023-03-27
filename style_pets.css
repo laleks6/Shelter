@@ -20,7 +20,16 @@ body {
     margin: 0 auto;
     
 }
+.curso--pointer {
+    cursor: pointer;
+}
+.button:hover {
+    background: #FDDCC4;  
+}
 
+.logo {
+    text-decoration: none;
+}
 /*///////////////////////////*/
 
 /* header */
@@ -256,6 +265,8 @@ footer {
 .puppy__footer {
     margin-top: 25px;
 }
-
+.footer__content a {
+    text-decoration: none;
+}
 
 /*///////////////////////////*/
