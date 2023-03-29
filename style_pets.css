@@ -22,6 +22,7 @@ body {
 }
 .curso--pointer {
     cursor: pointer;
+    transition: all 0.2s linear;
 }
 .button:hover {
     background: #FDDCC4;  
@@ -67,6 +68,9 @@ header {
     letter-spacing: 0.1em;
     margin-top: -10px;
 }
+.logo a {
+    text-decoration: none;
+}
 
 .nav__list {
     display: flex;
@@ -77,14 +81,7 @@ header {
     list-style-type: none;
     
 }
-.nav__item:nth-child(2) span{
-    display: block;
-    border-bottom: 3px solid #F1CDB3;
-    width: 58px;
-    height: 24px;
-    
-    
-}
+
 .nav__item a {
     text-decoration: none;
     font-family: 'Arial';
@@ -93,10 +90,22 @@ header {
     font-size: 15px;
     line-height: 160%;
     color: #545454;
+    padding-bottom: 3px;
 }
-.logo a {
-    text-decoration: none;
+.nav__item:nth-child(2) a{
+    border-bottom: 3px solid #F1CDB3;
+    color: #292929;
+    padding-bottom: 3px;
 }
+
+.nav__item:nth-child(1) a:hover,
+.nav__item:nth-child(3) a:hover,
+.nav__item:nth-child(4) a:hover {
+    color: #292929;
+    border-bottom: 3px solid #F1CDB3;
+    transition: 60ms;
+}
+
 /*///////////////////////////*/
 
 /* pets */
@@ -151,7 +160,10 @@ header {
     padding-bottom: 30px;
     gap: 30px;
 }
-
+.pets_cards:hover {
+    transition: all 0.3s linear;
+    box-shadow: 5px 5px 20px 10px rgba(0, 0, 0, 0.1); 
+}
 .name__puppe {
     font-family: 'Georgia';
     font-style: normal;
@@ -187,6 +199,7 @@ header {
 .btn__sup {
     width: 52px;
     height: 52px;
+    background-color: #F6F6F6;
     border-radius: 50%;
 }
 
@@ -196,6 +209,9 @@ header {
 
 .sup_right{
     border: 2px solid #F1CDB3;
+}
+.sup_right:hover {
+    background: #FDDCC4;  
 }
 
 .sup_centr {
@@ -218,8 +234,6 @@ footer {
     display: flex;
     align-items:center;
     justify-content: space-between;
-  
-    
 }
 .contacts {
     width: 302px;
@@ -270,5 +284,19 @@ footer {
 .footer__content a {
     text-decoration: none;
 }
+.footer__content span:hover {
+    color: #ececeb;
+    transition: all 0.2s ease-in-out;
+}
+
+.location img:hover {
+    transform: scale(1.1);
+    transition: all 0.2s ease-in-out;
+}
+.contacts img:hover {
+    transform: scale(1.1);
+    transition: all 0.2s ease-in-out;
+}
+
 
 /*///////////////////////////*/

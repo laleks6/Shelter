@@ -26,6 +26,7 @@ body {
 }
 .button:hover {
     background: #FDDCC4;  
+    transition: all 0.2s linear;
 }
 /*///////////////////////////*/
 
@@ -80,14 +81,7 @@ header {
 .nav__item {
     list-style-type: none;
 }
-.nav__item:nth-child(1) span{
-    display: block;
-    border-bottom: 3px solid #F1CDB3;
-    width: 114px;
-    height: 27px;
-    margin-top: 5px;
-    margin-left: -15px;
-}
+
 .nav__item a {
     text-decoration: none;
     color: #CDCDCD;
@@ -97,7 +91,29 @@ header {
     font-size: 1.3rem;
     line-height: 15px;
     letter-spacing: 0.1em;
+    padding-bottom: 3px;
 }
+
+.nav__item:nth-child(1) a{
+    border-bottom: 3px solid #F1CDB3;
+    margin-left: -15px;
+    padding-bottom: 3px;
+    
+}
+
+.nav__item:nth-child(1) a {
+    color: #FAFAFA;
+}
+
+.nav__item:nth-child(2) a:hover,
+.nav__item:nth-child(3) a:hover,
+.nav__item:nth-child(4) a:hover {
+    color: #FAFAFA;
+    border-bottom: 3px solid #F1CDB3;
+    transition: 50ms;
+}
+
+
 
 /*///////////////////////////*/
 
@@ -244,7 +260,7 @@ header {
     margin-bottom: 60px;
     
 }
-.pets_csrds {
+.pets_cards {
     display: flex;
     flex-direction: column;
     align-items:center;
@@ -253,6 +269,12 @@ header {
     padding-bottom: 30px;
     gap: 30px;
 }
+
+.pets_cards:hover {
+    transition: all 0.3s linear;
+    box-shadow: 5px 5px 20px 10px rgba(0, 0, 0, 0.1); 
+}
+
 .name__puppe {
     font-family: 'Georgia';
     font-style: normal;
@@ -287,6 +309,7 @@ header {
     top: 43.5%;
     width: 52px;
     height: 52px;
+    background-color:  #F6F6F6;
     border: 2px solid #F1CDB3;
     border-radius: 50%;
 }
@@ -368,6 +391,7 @@ header {
     gap: 30px;
     
 }
+
 .help_item--dont_margin {
     margin-left: 0px;
 }
@@ -442,11 +466,13 @@ header {
     justify-content: space-between;
     width: 349px;
     height: 43px;
-    
     padding: 10px 15px;
     background-color: #F1CDB3;
     border-radius: 9px;
-
+}
+.credit__card:hover {
+    background-color: #FDDCC4;
+    transition: all 0.3s ease-in-out;
 }
 .credit__card a {
     text-decoration: none;
@@ -539,6 +565,19 @@ footer {
 
 .footer__content a {
     text-decoration: none;
+}
+.footer__content span:hover {
+    color: #ececeb;
+    transition: all 0.3s linear;
+}
+
+.location img:hover {
+    transform: scale(1.1);
+    transition: all 0.2s linear;
+}
+.contacts img:hover {
+    transform: scale(1.1);
+    transition: all 0.2s linear;
 }
 
 /*///////////////////////////*/
