@@ -6,12 +6,14 @@
 html {
     font-size: 10px;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 body {
     position: relative;
     width: 100vw;
     font-size: 1.6rem;
     color: #fff;
+    overflow-x: hidden;
     
 }
 .wrap {
@@ -30,6 +32,19 @@ body {
 
 .logo {
     text-decoration: none;
+}
+
+@media (max-width: 1279px) {
+    /* base */
+    .wrap {
+        padding: 0px 30px;
+      }
+}
+@media (max-width: 400px) {
+    .wrap {
+        padding: 0px 10px;
+    }
+
 }
 /*///////////////////////////*/
 
@@ -106,6 +121,74 @@ header {
     transition: 60ms;
 }
 
+.burger__icon {
+    position: relative;
+    display: none;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.burger__line {
+    display: inline-block;
+    width: 100%;
+    height: 2px;
+    background: #000000;
+    transition: all 0.3s ease-in;
+}
+.burger__line::before {
+    display: inline-block;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 2px;
+    background: #000000;
+}
+
+.burger__line::after {
+    display: inline-block;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #000000;
+    transition: all 0.3s ease-in;
+}
+.burger__acrive > .burger__line{
+    transform: rotate(45deg);
+}
+
+.burger__acrive > .burger__line::after{
+    top: calc(50% - 2px);
+    transform: rotate(-90deg);
+}
+
+.burger__acrive > .burger__line::before{
+    display: none;
+}
+
+@media (max-width: 765px) {
+    .header__nav {
+        display: none;
+    }
+    .burger__icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+}
+@media (max-width: 400px) {
+    .block__navigation {
+        padding: 0 10px;
+    }
+    .burger__icon {
+        margin-top: -12px;
+    }
+
+}
 /*///////////////////////////*/
 
 /* pets */
@@ -142,6 +225,7 @@ header {
 .pagination__cards {
     position: relative;
     display: grid;
+    justify-content: center;
     grid-template-columns: repeat(4, 270px); 
     grid-template-rows: repeat(2, 435px);/*minmax()*/
     column-gap: 40px;
@@ -149,6 +233,7 @@ header {
     padding-left: 105px;
     padding-right: 105px;
     margin-bottom: 60px;
+    width: 100%;
 }
 
 .pets_cards {
@@ -218,6 +303,70 @@ header {
     background: #F1CDB3;
     border: none;
 }
+
+@media (max-width: 1279px) {
+    .pagination__cards {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        column-gap: 40px;
+        row-gap: 30px;
+        padding: 0;
+        margin-bottom: 60px;
+    }
+    .title__pets {
+        margin-bottom: 30px;
+    }
+
+    
+}
+
+/* > 1280 */
+@media (max-width: 900px) { 
+    .pets {
+        padding: 42px 0px 45px 0px;
+    }
+    .pagination__cards {
+        margin-bottom: 40px;
+    }
+    
+    .pets_cards:nth-child(7) {
+        display: none;
+    }
+    .pets_cards:nth-child(8) {
+        display: none;
+    }
+
+}
+
+@media (max-width: 765px) {
+    .title__pets {
+        font-size: 2.5rem;
+        align-items: center;
+        margin-bottom: 40px;
+    
+    }
+    .pagination__btn{
+        display: flex;
+        gap: 10px;
+    }
+}
+@media (max-width: 400px) {
+
+    .pets_cards:nth-child(4) {
+        display: none;
+    }
+    .pets_cards:nth-child(5) {
+        display: none;
+    }
+    .pets_cards:nth-child(6) {
+        display: none;
+    }
+
+}
+
 /*///////////////////////////*/
 
 /* footer */
@@ -232,8 +381,10 @@ footer {
 .footer__content {
     position: relative;
     display: flex;
+    flex-wrap: wrap;
     align-items:center;
-    justify-content: space-between;
+    justify-content: space-between; 
+    gap: 0 30px; 
 }
 .contacts {
     width: 302px;
@@ -298,5 +449,74 @@ footer {
     transition: all 0.2s ease-in-out;
 }
 
+/* > 1280*/
+@media (max-width: 1000px) {
+    .puppy__footer {
+        margin: 0px;
+        margin-left: calc(50% - 300px/2);
+    }
+
+    .footer__content {
+        padding: 30px 34px 0px 34px;
+    }
+
+    .contacts,
+    .location {
+        margin: 0px 0px 65px 0px;   
+    }   
+}
+@media (max-width: 765px) {
+    .footer__content {
+        align-items: center;
+        justify-content: center;
+    }
+    .puppy__footer {
+        margin: 0px;
+        
+    }
+
+}
+@media (max-width: 400px) {
+    .footer__content {
+        padding: 30px 0px 0px 0px;
+    }
+    .tittle__contacts, 
+    .tittle__location {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+    .tittle__location {
+        padding: 0px 10px;
+    }
+    .contacts {
+        padding: 0px 10px;
+    }
+    .contacts,
+    .location {
+        width: 100%;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        margin-bottom: 37px;
+    }
+    .email,
+    .phone {
+        text-align: center;
+    }
+    .phone {
+        margin-top: -5px;
+    }
+
+    .second__ofiice {
+        margin-left: -30px;
+    }
+    .puppy__footer {
+        max-width: 260px;
+        max-height: 269px
+    }
+   
+
+}
 
 /*///////////////////////////*/
