@@ -326,7 +326,7 @@ header {
 /* > 1280 */
 @media (max-width: 900px) { 
     .pets {
-        padding: 42px 0px 45px 0px;
+        padding: 80px 0px 75px 0px;
     }
     .pagination__cards {
         margin-bottom: 40px;
@@ -354,7 +354,9 @@ header {
     }
 }
 @media (max-width: 400px) {
-
+    .pets {
+        padding: 42px 0px 45px 0px;
+    }
     .pets_cards:nth-child(4) {
         display: none;
     }
