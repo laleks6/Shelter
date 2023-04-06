@@ -66,7 +66,6 @@ header {
     padding-top: 30px;
 }
 .block__navigation {
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -147,7 +146,8 @@ header {
     width: 30px;
     height: 22px;
     cursor: pointer;
-    transition: all 0.3s ease-in;
+    transition: all 0.4s ease-in;
+    z-index: 4;
 }
 
 .burger__line {
@@ -176,10 +176,20 @@ header {
     background: #F1CDB3;
     
 }
-.burger__acrive {
+.burger--active {
     transform: rotate(90deg);
-    transition: all 0.3s ease-in;
+    transition: all 0.4s ease-in;
 }
+
+.burger__blackout {
+    display: none;
+    transition: all 0.4s ease-in;
+}
+.body__block {
+    overflow-y:hidden;
+    height: 100vh;
+}
+
 /*.burger__acrive > .burger__line{
     transform: rotate(45deg);
 }
@@ -195,14 +205,58 @@ header {
 
 @media (max-width: 767px) {
     .header__nav {
-        display: none;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 320px;
+        height: 100vh;
+        right: -100%;
+        top: -30px;
+        background: #292929;
+        z-index: 3;
+        transition: all 0.4s ease-in;
+    }
+    .burger__menu--active {
+        right:0;
+        transition: all 0.4s ease-in;
+    }
+   
+    .burger__blackout--active{
+        position: absolute;
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(41, 41, 41, 0.6);
+        z-index: 2;
+        transition: all 0.4s ease-in;
+    }
+    .nav__list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
     }
     .burger__icon {
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
+    .nav__list {
+        margin: 0;
+        padding: 0;
+        gap: 40px;
+    }
+    .nav__item:nth-child(1) a{
+        margin: 0;
+        padding: 0;
+        
+    }
+    .nav__item a {
+        font-size: 3.2rem;
 
+    }
+  
 }
 @media (max-width: 400px) {
     .block__navigation {
