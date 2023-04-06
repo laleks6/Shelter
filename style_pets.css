@@ -286,7 +286,12 @@ header {
     height: 52px;
     background-color: #F6F6F6;
     border-radius: 50%;
-}
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 115%;
+    }
 
 .sup_left{
     border: 2px solid #CDCDCD;
