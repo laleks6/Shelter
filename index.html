@@ -10,6 +10,7 @@
     <title>Shelter</title>
 </head>
 <body>
+    <div class="burger__blackout"></div>
     <header> 
         <div class="wrap">
             <div class="block__navigation">
@@ -19,12 +20,13 @@
                         <span class="logo__postscript">Shelter for pets in Boston</span>
                     </h1>
                 </a>
+
                 <nav class="header__nav">
                     <ul class="nav__list">
-                        <li class="nav__item curso--pointer "><a href="#">About&nbsp;the&nbsp;shelter</a></li>
-                        <li class="nav__item curso--pointer "><a href=".///pets.html" >Our pets</a></li>
-                        <li class="nav__item curso--pointer "><a href="#help">Help the shelter</a></li>
-                        <li class="nav__item curso--pointer "><a href="#footer">Contacts</a></li>
+                        <li class="nav__item curso--pointer "><a class="item_link" href="#">About&nbsp;the&nbsp;shelter</a></li>
+                        <li class="nav__item curso--pointer "><a class="item_link" href=".///pets.html" >Our pets</a></li>
+                        <li class="nav__item curso--pointer "><a class="item_link" href="#help">Help the shelter</a></li>
+                        <li class="nav__item curso--pointer "><a class="item_link" href="#footer">Contacts</a></li>
                     </ul>
                 </nav>
                 <div class="burger__icon">
@@ -35,6 +37,7 @@
         </div>
     </header>
     <main>
+        
         <section class="not__only">
             <div class="wrap">
                 <div class="start__content">
@@ -70,31 +73,51 @@
                 </div>
             </div>
         </section>
+        
         <section class="pets" id="our_friends">
+            
+            <div class="pop_up">
+                <img class="img__pop__up" src="" alt="puppe">
+                <div class="block__info__pop__up">
+                    <span class="name__pop__up"></span>
+                    <span class="breed__pop__up"></span>
+                    <p class="info__pop__up"></p>
+                    <ul class="brief__info__list">
+                        <li class="brief__info__item"><b class="strong"></b><spna class="info__span"></spna></li>
+                        <li class="brief__info__item"><b class="strong"></b><spna class="info__span"></spna></li>
+                        <li class="brief__info__item"><b class="strong"></b><spna class="info__span"></spna></li>
+                        <li class="brief__info__item"><b class="strong"></b><spna class="info__span"></spna></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pop__up__blackout"></div>
             <div class="wrap">
+                
                 <div class="pets__content">
                     <h2 class="title__pets">Our friends who<br>
                         are looking for a house
                     </h2>
-                    <div class="slider">
-                        <div class="pets_cards curso--pointer">
-                            <img class="puppe__person__img" src=".///assets///img///pets-katrine.png" alt="pets">
-                            <span class="name__puppe">Katrine</span>
-                            <button class="btn__cards button curso--pointer ">Learn more</button>
+                    <div class="slider_wrap">
+                        <div class="slider">
+                            <div class="pets_cards main curso--pointer" id="4">
+                                <img class="puppe__person__img main__img" src=".///assets///img///pets-katrine.png" alt="pets">
+                                <span class="name__puppe main__name">Katrine</span>
+                                <button class="btn__cards button curso--pointer ">Learn more</button>
+                            </div>
+                            <div class="pets_cards main curso--pointer" id="0">
+                                <img class="puppe__person__img main__img" src=".///assets///img///pets-jennifer.png" alt="pets">
+                                <span class="name__puppe main__name">Jennifer</span>
+                                <button class="btn__cards button curso--pointer ">Learn more</button>
+                            </div>
+                            <div class="pets_cards main curso--pointer" id="2">
+                                <img class="puppe__person__img main__img" src=".///assets///img///pets-woody.png" alt="pets">
+                                <span class="name__puppe main__name">Woody</span>
+                                <button class="btn__cards button curso--pointer ">Learn more</button>
+                            </div>
                         </div>
-                        <div class="pets_cards curso--pointer">
-                            <img class="puppe__person__img" src=".///assets///img///pets-jennifer.png" alt="pets">
-                            <span class="name__puppe">Jennifer</span>
-                            <button class="btn__cards button curso--pointer ">Learn more</button>
-                        </div>
-                        <div class="pets_cards curso--pointer">
-                            <img class="puppe__person__img" src=".///assets///img///pets-woody.png" alt="pets">
-                            <span class="name__puppe">Woody</span>
-                            <button class="btn__cards button curso--pointer ">Learn more</button>
-                        </div>
-                        <button class="button__arrow button arrow--left curso--pointer "><img src=".///assets///svg///arrows-slider.svg" alt="arrpow"></button>
-                        <button class="button__arrow button arrow--right curso--pointer "><img src=".///assets///svg///arrows-slider.svg " alt="arrpow" class="arrow--transform"></button>
                     </div>
+                    <button class="button__arrow button arrow--left curso--pointer "><img src=".///assets///svg///arrows-slider.svg" alt="arrpow"></button>
+                    <button class="button__arrow button arrow--right curso--pointer "><img src=".///assets///svg///arrows-slider.svg " alt="arrpow" class="arrow--transform"></button>
                     <form action=".///pets.html" >
                         <button class="button__link button curso--pointer">Get to know the rest</button>
                     </form>
@@ -214,6 +237,6 @@
             </div>
         </div>
     </footer>
-    <script src=".///script.js"></script> 
+    <script type="module" src=".///script.js"></script> 
 </body>
 </html>
