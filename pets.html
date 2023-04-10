@@ -9,6 +9,7 @@
     <title>Pets</title>
 </head>
 <body>
+    <div class="burger__blackout"></div>
     <header> 
         <div class="wrap">
             <div class="block__navigation">
@@ -34,57 +35,72 @@
     </header>
     <main>
         <section class="pets">
+            <div class="pop_up">
+                <img class="img__pop__up" src="" alt="puppe">
+                <div class="block__info__pop__up">
+                    <span class="name__pop__up"></span>
+                    <span class="breed__pop__up"></span>
+                    <p class="info__pop__up"></p>
+                    <ul class="brief__info__list">
+                        <li class="brief__info__item"><b class="strong"></b><spna class="info__span"></spna></li>
+                        <li class="brief__info__item"><b class="strong"></b><spna class="info__span"></spna></li>
+                        <li class="brief__info__item"><b class="strong"></b><spna class="info__span"></spna></li>
+                        <li class="brief__info__item"><b class="strong"></b><spna class="info__span"></spna></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pop__up__blackout"></div>
             <div class="wrap">
                 <div class="pets__content">
                     <h2 class="title__pets">Our friends who<br> are looking for a house</h2>
-                    <div class="pagination__cards">
-                        <div class="pets_cards curso--pointer">
+                    <div class="pagination__cards"> 
+                        <div class="pets_cards curso--pointer" id="4">
                             <img class="puppe__person__img" src=".///assets///img///pets-katrine.png" alt="pets">
                             <span class="name__puppe">Katrine</span>
                             <button class="btn__cards curso--pointer button">Learn more</button>
                         </div>
-                        <div class="pets_cards curso--pointer">
+                        <div class="pets_cards curso--pointer" id="0">
                             <img class="puppe__person__img" src=".///assets///img///pets-jennifer.png" alt="pets">
                             <span class="name__puppe">Jennifer</span>
                             <button class="btn__cards curso--pointer button">Learn more</button>
                         </div>
-                        <div class="pets_cards curso--pointer">
+                        <div class="pets_cards curso--pointer" id="2">
                             <img class="puppe__person__img" src=".///assets///img///pets-woody.png" alt="pets">
                             <span class="name__puppe">Woody</span>
                             <button class="btn__cards curso--pointer button">Learn more</button>
                         </div>
-                        <div class="pets_cards curso--pointer">
+                        <div class="pets_cards curso--pointer" id="1">
                             <img class="puppe__person__img" src=".///assets///img///pets-sophia.png" alt="pets">
                             <span class="name__puppe">Sophia</span>
                             <button class="btn__cards curso--pointer button">Learn more</button>
                         </div>
-                        <div class="pets_cards curso--pointer">
+                        <div class="pets_cards curso--pointer" id="5">
                             <img class="puppe__person__img" src=".///assets///img///pets-timmy.png" alt="pets">
                             <span class="name__puppe">Timmy</span>
                             <button class="btn__cards curso--pointer button">Learn more</button>
                         </div>
-                        <div class="pets_cards curso--pointer">
+                        <div class="pets_cards curso--pointer" id="7">
                             <img class="puppe__person__img" src=".///assets///img//pets-charly.png" alt="pets">
                             <span class="name__puppe">Charly</span>
                             <button class="btn__cards curso--pointer button">Learn more</button>
                         </div>
-                        <div class="pets_cards curso--pointer">
+                        <div class="pets_cards curso--pointer" id="3">
                             <img class="puppe__person__img" src=".///assets///img//pets-scarlet.png" alt="pets">
                             <span class="name__puppe">Scarlett</span>
                             <button class="btn__cards curso--pointer button">Learn more</button>
                         </div>
-                        <div class="pets_cards curso--pointer">
+                        <div class="pets_cards curso--pointer" id="6">
                             <img class="puppe__person__img" src=".///assets///img///pets-freddy.png" alt="pets">
                             <span class="name__puppe">Freddie</span>
                             <button class="btn__cards curso--pointer button">Learn more</button>
                         </div>
                     </div>
                     <div class="pagination__btn">
-                        <button class="btn__sup sup_left curso--pointer"><img src=".///assets///svg///pag-arrow-two-left.svg" alt="arr"></button>
-                        <button class="btn__sup sup_left curso--pointer"><img src=".///assets///svg///pag-arrow-one-left.svg" alt="arr"></button>
+                        <button class="btn__sup sup_left first__page curso--pointer"><img class="btn__icon__first__page icon--left" src=".///assets///svg///pag-arrow-two-left.svg" alt="arr"></button>
+                        <button class="btn__sup sup_left past__page curso--pointer"><img class="btn__icon__past__page icon--left" src=".///assets///svg///pag-arrow-one-left.svg" alt="arr"></button>
                         <button class="btn__sup sup_centr curso--pointer">1</button>
-                        <button class="btn__sup sup_right curso--pointer"><img src=".///assets///svg///pag-arrow-one-right.svg" alt="arr"></button>
-                        <button class="btn__sup sup_right curso--pointer"><img src=".///assets///svg///pag-arrow-two-right.svg" alt="arr"></button>
+                        <button class="btn__sup sup_right next__page curso--pointer btn--active"><img class="btn__icon__next__page icon--right" src=".///assets///svg///pag-arrow-one-right.svg" alt="arr"></button>
+                        <button class="btn__sup sup_right last__page curso--pointer btn--active"><img class="btn__icon__last__page icon--right" src=".///assets///svg///pag-arrow-two-right.svg" alt="arr"></button>
                     </div>
                 </div>
             </div>
@@ -136,6 +152,6 @@
             </div>
         </div>
     </footer>
-    <script src=".///script.js"></script>
+    <script type="module" src=".///script_pets.js"></script>
 </body>
 </html>
