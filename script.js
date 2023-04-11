@@ -43,8 +43,9 @@ navList.addEventListener('click', (el) => {
 
 const popUp = () => {
     let id
-    const popUp = document.querySelector('.pop_up')
+    const popUp = document.querySelector('.block_pop_up')
     const pets = document.querySelector('.pets')
+    const closedIcon = document.querySelector('.icon__closed__pop_up')
     const blackoutPopUp = document.querySelector(".pop__up__blackout");
     const cardsPopup = document.querySelectorAll('.pets_cards')
     const imgPopUp = document.querySelector('.img__pop__up')
@@ -55,7 +56,7 @@ const popUp = () => {
     const info__span = document.querySelectorAll('.info__span')
 
     const creatPopUp = () => {
-        console.log(id)
+        console.log(+id)
         imgPopUp.src = dataCards[id]["img"];
         namePopUp.textContent = dataCards[id]["name"];
         breedPopUp.textContent = `${dataCards[id]["type"]} - ${dataCards[id]["breed"]}`;
@@ -73,17 +74,18 @@ const popUp = () => {
     cardsPopup.forEach(el => {
         el.addEventListener('click', (elem) =>  {
             //console.log(elem.target.parentNode.id)
-            id = elem.target.parentNode.id
+         
+            id = +elem.target.parentNode.id
             popUp.classList.add('pop__Up--active')
             creatPopUp()
             blackoutPopUp.classList.toggle("blackout--active")
-            document.body.style.top = `-0px`
-            document.body.style.top = `-${window.scrollY}px`
             document.body.classList.toggle('position__fixes')
+            //document.body.classList.toggle("blackout--active")
+            //document.body.style.top = `-0px`
+            //document.main.style.top = `-${window.scrollY}px`
             
-            
-            
-            
+
+   
         })
     })
     blackoutPopUp.addEventListener('click', () => {
@@ -91,10 +93,14 @@ const popUp = () => {
             popUp.classList.remove('pop__Up--active')
             blackoutPopUp.classList.toggle("blackout--active")
             document.body.classList.toggle('position__fixes')
-            
-            
+   
         }
     
+    })
+    closedIcon.addEventListener('click', () => {
+        popUp.classList.remove('pop__Up--active')
+        blackoutPopUp.classList.toggle("blackout--active")
+        document.body.classList.toggle('position__fixes')
     })
 }
 popUp()
