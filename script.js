@@ -1,6 +1,6 @@
 import dataCards from './data__pets.json' assert { type: "json" }
-console.log(" пишите в дискорд (@laleks#0503), либо в проверочном чате RS")
-alert("Доделаю работу в течении двух дней, пожалуйста не ставьте оценку Мой дискорд (@laleks#0503)")
+//console.log(" пишите в дискорд (@laleks#0503), либо в проверочном чате RS")
+//alert("Доделаю работу в течении двух дней, пожалуйста не ставьте оценку Мой дискорд (@laleks#0503)")
 
 /*burger menu*/
 const burgerIcon = document.querySelector(".burger__icon");
@@ -118,7 +118,7 @@ const sliderBlockForWindowWight = (quantity) => {
 
     let count = 0
     let arrPastSet = []
-    let arrPastSetResult
+    let bonusArrParseSet = []
     let arr = []
     let result
 
@@ -138,37 +138,129 @@ const sliderBlockForWindowWight = (quantity) => {
                 
             result = arr.map(el => arr.push(el))
             result = arr
-        console.log(result);
+        console.log(`Созданный рандом ${result}`);
         return arr
     }
 
     //функция которая сохроняет id видимых блоков в массиве 
+    
     const saveIdMainBlock = () => {
         for(let i = 0; i < quantity; i++){
-            arrPastSet.push(cardsMain[i].id)  
+
+            arrPastSet.push(cardsMain[i].id)
+
         }
+   
+   
         arrPastSet.map(el => arrPastSet.push(el))
+
+        console.log(`Только созданный бонусный Past массив - ${bonusArrParseSet}`)
+        console.log(`Только созданный бонусный Past массив - ${arrPastSet}`)
+
         return arrPastSet
         
     }
     //функция которая определяет когда пересохранить id
+    /*
+    const saveIdMainBlock = () => {
+        for(let i = 0; i < quantity; i++){
+            if(!slider.classList.contains('addPastCards')) {
+                arrPastSet.push(cardsMain[i].id)
+                   
+            }else {
+                bonusArrParseSet.push(cardsMain[i].id)
+            }
+        }
+   
+        bonusArrParseSet.map(el => bonusArrParseSet.push(el))
+        arrPastSet.map(el => arrPastSet.push(el))
+
+        console.log(`Только созданный бонусный Past массив - ${bonusArrParseSet}`)
+        console.log(`Только созданный бонусный Past массив - ${arrPastSet}`)
+
+        return arrPastSet
+        
+    }
     const changePastId = () => {
-    if (count === 0 || count === 1) {
+        console.log(`Начальный count - ${count}`);
+
+        if(count === 1 && slider.classList.contains('beforePastCards')){
+            arrPastSet = []
+            arrPastSet = bonusArrParseSet
+        }
+        else if(count > 1 && slider.classList.contains('beforePastCards') && slider.classList.contains('addPastCards')){
+            count = 0
+            arrPastSet = []
+            creatRandomId()
+        }
+        else if(count > 1 && slider.classList.contains('beforePastCards')){
+            count = 0
+            arrPastSet = []
+            arrPastSet = bonusArrParseSet
+        }
+        else if(count === 0 || count === 1) {
             arrPastSet = [];
+            bonusArrParseSet = []
             saveIdMainBlock()
             creatRandomId()
             
         }
-        else if (count > 1) {
-            arrPastSet = [];
+        else if (count > 1 && slider.classList.contains('addPastCards')) {
             count = 0
             saveIdMainBlock()
             creatRandomId()
             
+        } 
+        else if (count > 1) {
+            bonusArrParseSet = [];
+            arrPastSet = [];
+            count = 0
+            saveIdMainBlock()
+            creatRandomId()  
         }
-       
-        console.log(count + " - count");
-        console.log(...arrPastSet + " - arrPast res");
+
+        console.log(`Финальный count - ${count}`);
+        console.log(`Бонусный Past массив - ${bonusArrParseSet}`)
+        console.log(`Главный Past массив - ${arrPastSet}`);
+
+        return arrPastSet
+    
+    }*/
+
+    const changePastId = () => {
+        console.log(`Начальный count - ${count}`);
+        if(count < 2 && slider.classList.contains('addPastCards')) {
+            console.log(`1-ое условие изменения id`);
+
+            
+        }else if (count > 1 && slider.classList.contains('addPastCards')) {
+            console.log(`2-ое условие изменения id`);
+            count = 0
+ 
+              
+        }
+        else if(count < 2) {
+            console.log(`3-ое условие изменения id`);
+            arrPastSet = [];
+            bonusArrParseSet = []
+            saveIdMainBlock()
+            creatRandomId()
+            
+        }else if (count > 1) {
+            console.log(`4-ое условие изменения id`);
+
+            bonusArrParseSet = [];
+            arrPastSet = [];
+            count = 0
+            saveIdMainBlock()
+            creatRandomId()  
+        }
+
+
+        console.log(`Финальный count - ${count}`);
+        console.log(`Бонусный Past массив - ${bonusArrParseSet}`)
+        console.log(`Главный Past массив - ${arrPastSet}`);
+
         return arrPastSet
     
     }
@@ -229,8 +321,11 @@ const sliderBlockForWindowWight = (quantity) => {
 
     //заполняет контентом новый блок карточек при переключении(создает только в ту сторону в которую следует слайдер)
     const fillContentSecondBlockCards = () => {
+        console.log("Начало заполнения бокового контента")
         if(slider.classList.contains('addPastCards')){
-
+            console.log("Начало заполнения бокового контента выбран путь addPastCards")
+            console.log(`Проверка PAST массива для бокового контента - ${arrPastSet}`)
+            console.log(`Проверка бонусного массива для бокового контента - ${bonusArrParseSet}`)
             for(let i = 0; i < cardsReplicant.length; i++) {
                 console.log(dataCards[+arrPastSet[i]]["img"] + "проверкана ошибку 2")
                 
@@ -239,7 +334,11 @@ const sliderBlockForWindowWight = (quantity) => {
                 cheingReplicantBtn[i].innerHTML = "Learn more";
                 cardsReplicant[i].id = +arrPastSet[i]  
             }
+            
         }else {
+            console.log("Начало заполнения бокового контента выбран путь Orige")
+            console.log(`Проверка PAST массива для бокового контента - ${arrPastSet}`)
+            console.log(`Проверка бонусного массива для бокового контента - ${bonusArrParseSet}`)
             for(let i = 0; i < cardsReplicant.length; i++) {
                 cheingReplicantImg[i].src = dataCards[+arr[i]]["img"]
                 cheingReplicantName[i].textContent = dataCards[+arr[i]]["name"]
@@ -255,18 +354,26 @@ const sliderBlockForWindowWight = (quantity) => {
 
 //после конца анимации меняет заменяет элементы карточки main  на новые 
 const replacementCards = () => {
+    console.log("Начало заполнения главного контента")
+    
     if(slider.classList.contains('addPastCards')){
-        console.log(arrPastSet + "проверка массива 2-0")
+        console.log("Начало заполнения главного контента выбран путь addPastCards")
+        console.log(`Проверка PAST массива для гланого контента - ${arrPastSet}`)
+        console.log(`Проверка бонусного массива для гланого контента - ${bonusArrParseSet}`)
         for(let i = 0; i < quantity; i++){
-            console.log(arrPastSet + "проверка замены ориг карт")
             cardsMainImg[i].src = `${dataCards[arrPastSet[i]]["img"]}`
             cardsMainName[i].textContent = `${dataCards[arrPastSet[i]]["name"]}`
-            cardsMain[i].id = arrPastSet[i];
-            slider.classList.remove('addPastCards')
-            
+            cardsMain[i].id = arrPastSet[i]; 
         }
-        changePastId()    
+       
+        slider.classList.remove('addPastCards')
+        slider.classList.add('beforePastCards')
+        
+          
     }else {
+        console.log("Начало заполнения главного контента выбран путь Orige")
+        console.log(`Проверка PAST массива для гланого контента - ${arrPastSet}`)
+        console.log(`Проверка бонусного массива для гланого контента - ${bonusArrParseSet}`)
         for(let i = 0; i < quantity; i++){
             cardsMainImg[i].src = `${dataCards[arr[i]]["img"]}`
             cardsMainName[i].textContent = `${dataCards[arr[i]]["name"]}`
@@ -274,20 +381,26 @@ const replacementCards = () => {
         }
     }
   
-
 }
 
     //слайд влево
     const moveLeft = () => {
         count++
+        
         if(slider.classList.contains('right')){
             slider.classList.add('addPastCards')
-            fillContentSecondBlockCards()
+            fillContentSecondBlockCards() 
+            changePastId()
             
-        }else {
             
+            
+            
+        }else {  
+            slider.classList.remove('beforePastCards')
             changePastId()
             fillContentSecondBlockCards()
+            
+            
         }
         
         slider.classList.add('left');
@@ -307,8 +420,12 @@ const replacementCards = () => {
         if(slider.classList.contains('left')){
             slider.classList.add('addPastCards')
             fillContentSecondBlockCards()
-        }else {
+            changePastId()
             
+            
+            
+        }else {
+            slider.classList.remove('beforePastCards')
             changePastId()
             fillContentSecondBlockCards()
         }
@@ -330,7 +447,8 @@ const replacementCards = () => {
     // после аканчания анимации этот эвент производит определеные действия 
     slider.addEventListener("animationend", (animationEvent) => {
         console.log(count + "  enda animaton")
-        console.log(arrPastSet + "проверка массива")
+        console.log(arrPastSet + "проверка бонусного массива")
+        console.log(arrPastSet + "проверка  PAst массива")
         replacementCards()
         if (animationEvent.animationName === "move--left") {
             slider.classList.remove('transition--left');
@@ -341,9 +459,6 @@ const replacementCards = () => {
             arrowRight.addEventListener('click', moveRight);
             arrowLeft.addEventListener('click', moveLeft);
         }
-
-
-        
         
         
         
