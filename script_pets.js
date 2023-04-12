@@ -11,29 +11,29 @@ const navList = document.querySelector(".nav__list");
 
 
 burgerIcon.addEventListener('click', () => {
-    console.log("click burger menu")
-    burgerIcon.classList.toggle("burger--active")
-    burgerMenu.classList.toggle("burger__menu--active")
-    blackout.classList.toggle("burger__blackout--active")
-    document.body.classList.toggle('body__block')
+    
+    burgerIcon.classList.add("burger--active")
+    burgerMenu.classList.add("burger__menu--active")
+    blackout.classList.add("burger__blackout--active")
+    document.body.classList.add('body__block')
 
 })
 blackout.addEventListener('click', () => {
     if(burgerIcon.classList.contains("burger--active")) {
-        burgerIcon.classList.toggle("burger--active")
-        burgerMenu.classList.toggle("burger__menu--active")
-        blackout.classList.toggle("burger__blackout--active")
+        burgerIcon.classList.remove("burger--active")
+        burgerMenu.classList.remove("burger__menu--active")
+        blackout.classList.remove("burger__blackout--active")
         document.body.classList.remove('body__block')
     }
 
 })
 navList.addEventListener('click', (el) => {
-    console.log(el.target)
+    console.log(el.target + "target")
     
-    if(el.target.classList == "item_link") {
-        burgerIcon.classList.toggle("burger--active")
-        burgerMenu.classList.toggle("burger__menu--active")
-        blackout.classList.toggle("burger__blackout--active")
+    if(el.target.classList == "item_link" && burgerIcon.classList.contains("burger--active")) {
+        burgerIcon.classList.remove("burger--active")
+        burgerMenu.classList.remove("burger__menu--active")
+        blackout.classList.remove("burger__blackout--active")
         document.body.classList.remove('body__block')
     }
 
@@ -227,8 +227,10 @@ const popUp = () => {
             blackoutPopUp.classList.toggle("blackout--active")
             document.body.classList.toggle('position__fixes')
             //document.body.classList.toggle("blackout--active")
-            //document.body.style.top = `-0px`
-            document.body.style.top = `-30%`
+            
+           
+            console.log(window.screenTop)
+            
             
 
    
@@ -239,6 +241,7 @@ const popUp = () => {
             popUp.classList.remove('pop__Up--active')
             blackoutPopUp.classList.toggle("blackout--active")
             document.body.classList.toggle('position__fixes')
+            
    
         }
     
@@ -247,6 +250,7 @@ const popUp = () => {
         popUp.classList.remove('pop__Up--active')
         blackoutPopUp.classList.toggle("blackout--active")
         document.body.classList.toggle('position__fixes')
+        
     })
 }
 popUp()
