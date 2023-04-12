@@ -6,11 +6,12 @@
 html {
     font-size: 10px;
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    
 }
 body {
     position: relative;
     width: 100vw;
+    height: 100vh;
     font-size: 1.6rem;
     color: #fff;
     overflow-x: hidden;
@@ -163,6 +164,7 @@ header {
     
 }
 .burger--active {
+    
     transform: rotate(90deg);
     transition: all 0.4s ease-in;
 }
@@ -186,21 +188,22 @@ header {
 }
 @media (max-width: 767px) {
     .header__nav {
-        position: absolute;
+        position: fixed;
         display: flex;
         align-items: center;
         justify-content: center;
         width: 320px;
         height: 100vh;
-        right: -110%;
-        top: -30px;
+        right: 0;
+        top: 0px;
         background: #FAFAFA;
         z-index: 3;
-        transition: all 0.4s ease-in;
+        transform: translateX(100%);
+	    transition: transform 0.5s;
     }
     .burger__menu--active {
-        right: -4.7%;
-        transition: all 0.4s ease-in;
+        
+        transform: translateX(0%);
     }
    
     
@@ -402,6 +405,7 @@ header {
     justify-content: space-between;
     width: 900px;
     height: 500px;
+    padding-right: 20px;
     background-color: #FAFAFA;
 }
 
@@ -506,7 +510,7 @@ header {
     display: flex;
     align-items:flex-end;
     justify-content: flex-start;
-    position: absolute;
+    position: fixed;
 
     transition: all 0.4s ease-in;
 
@@ -535,6 +539,35 @@ header {
     
 }
 
+@media (max-width: 1100px) {
+    .block_pop_up {
+        width: 682px;
+        height: 402px;
+        
+       
+    }
+    .pop_up {
+        width: 630px;
+        height: 350px;
+        padding-right: 0px;
+    }
+    .img__pop__up{
+        width: 350px;
+        height: 350px;
+    }
+    .breed__pop__up {
+        margin-bottom: 20px;
+    }
+    .info__pop__up {
+        margin-bottom: 20px;
+    }
+    .block__info__pop__up {
+        padding: 10px;
+    }
+    .brief__info__list li {
+        padding-top: 6px;
+    }
+}
 /* > 1280 */
 @media (max-width: 900px) { 
     .pets {
@@ -551,6 +584,38 @@ header {
         display: none;
     }
 
+}
+@media (max-width: 740px) {
+    .block_pop_up {
+        width: 270px;
+        height: 393px;
+       
+    }
+    .pop_up {
+        width: 240px;
+        height: 341px;
+        padding-right: 0px;
+        align-items: center;
+    }
+    .name__pop__up {
+        text-align: center;
+    }
+    .img__pop__up{
+        display: none;
+    }
+    .breed__pop__up {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .info__pop__up {
+        margin-bottom: 10px;
+    }
+    .block__info__pop__up {
+        padding: 10px;
+    }
+    .brief__info__list li {
+        padding-top: 6px;
+    }
 }
 
 @media (max-width: 765px) {

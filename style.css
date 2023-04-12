@@ -9,10 +9,10 @@
   border: 1px solid red;
 }*/
 html {
-
+    height: 100vh;
     font-size: 10px;
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    
 }
 body {
     position: relative;
@@ -178,8 +178,9 @@ header {
     
 }
 .burger--active {
+    
     transform: rotate(90deg);
-    transition: all 0.4s ease-in;
+    transition: all 0.4s line;
 }
 
 .burger__blackout {
@@ -197,6 +198,7 @@ header {
     height: 100vh;
     background: rgba(41, 41, 41, 0.6);
     z-index: 2;
+    
     transition: all 0.4s ease-in;
 }
 /*.burger__acrive > .burger__line{
@@ -214,21 +216,22 @@ header {
 
 @media (max-width: 767px) {
     .header__nav {
-        position: absolute;
+        position: fixed;
         display: flex;
         align-items: center;
         justify-content: center;
         width: 320px;
         height: 100vh;
-        right: -100%;
-        top: -30px;
+        right: 0;
+        top: 0px;
         background: #292929;
         z-index: 3;
-        transition: all 0.4s ease-in;
+        transform: translateX(100%);
+	    transition: transform 0.5s;
+        
     }
     .burger__menu--active {
-        right:0;
-        transition: all 0.4s ease-in;
+        transform: translateX(0%);
     }
    
     
@@ -602,25 +605,27 @@ header {
 
 }
 
+.transition--right {
+    animation: move--right;
+    animation-duration: 2s;
+}
 @keyframes move--right {
     from {left: 0;}
     to {left: -108%;}
 }
 
-.transition--right {
-    animation: move--right;
-    animation-duration: 2s;
-}
-
-@keyframes move--left {
-    from {left: 0;}
-    to {left: +108%;}
-}
 
 .transition--left {
     animation: move--left;
     animation-duration: 2s;
 }
+@keyframes move--left {
+    from {left: 0;}
+    to {left: +108%;}
+}
+
+
+
 
 .pets_cards {
     position: relative;
@@ -704,6 +709,7 @@ header {
 }
 .block_pop_up {
     display: none;
+    
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -721,6 +727,7 @@ header {
     justify-content: space-between;
     width: 900px;
     height: 500px;
+    padding-right: 20px;
     background-color: #FAFAFA;
 }
 
@@ -814,7 +821,7 @@ header {
 .brief__info__list li {
     padding-top: 11px;
 }
-.strong
+.strong,
 .info__span {
     font-size: 15px;
     line-height: 110%;
@@ -825,13 +832,14 @@ header {
     display: flex;
     align-items:flex-end;
     justify-content: flex-start;
-    position: absolute;
-
-    transition: all 0.4s ease-in;
+    position: fixed;
+  
+    
+   
 
 }
 .position__fixes {
-    overflow: hidden;
+    overflow-y: hidden;
     position: fixed;
 }
 
@@ -849,17 +857,49 @@ header {
         padding: 0px 64px;
         
     }
+    .slider_wrap {
+        width: 960px;
+        height: 500px;
+    }
+    @keyframes move--left {
+        from {left: 0;}
+        to {left: +97%;}
+    }
+    @keyframes move--right {
+        from {left: 0;}
+        to {left: -97%;}
+    }
 }
 
 /* > 1280 */
 @media (max-width: 1150px) {
     .slider {
         gap: 40px;
+        width: 100%;
+        
     }
 
-    .pets_cards:nth-child(3) {
+    .three {
         display: none;
     }
+    .slider_wrap {
+        width: 620px;
+        height: 500px;
+    }
+    @keyframes move--left {
+        from {left: 0;}
+        to {left: +100%;}
+    }
+    @keyframes move--right {
+        from {left: 0;}
+        to {left: -100%;}
+    }
+    .arrow--left {
+        left: -40px;
+    }
+    .arrow--right {
+        right: -40px;  
+    } 
 }
 
 @media (max-width: 765px) {
@@ -881,8 +921,82 @@ header {
         left: calc(50% - 92px );
     }
 
+    @keyframes move--left {
+        from {left: 0;}
+        to {left: +105%;}
+    }
+    @keyframes move--right {
+        from {left: 0;}
+        to {left: -105%;}
+    }
+
+}
+@media (max-width: 1100px) {
+    .block_pop_up {
+        width: 682px;
+        height: 402px;
+       
+    }
+    .pop_up {
+        width: 630px;
+        height: 350px;
+        padding-right: 0px;
+    }
+    .img__pop__up{
+        width: 350px;
+        height: 350px;
+    }
+    .breed__pop__up {
+        margin-bottom: 20px;
+    }
+    .info__pop__up {
+        margin-bottom: 20px;
+    }
+    .block__info__pop__up {
+        padding: 10px;
+    }
+    .brief__info__list li {
+        padding-top: 6px;
+    }
+}
+@media (max-width: 740px) {
+    .block_pop_up {
+        width: 270px;
+        height: 393px;
+       
+    }
+    .pop_up {
+        width: 240px;
+        height: 341px;
+        padding-right: 0px;
+        align-items: center;
+    }
+    .name__pop__up {
+        text-align: center;
+    }
+    .img__pop__up{
+        display: none;
+    }
+    .breed__pop__up {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .info__pop__up {
+        margin-bottom: 10px;
+    }
+    .block__info__pop__up {
+        padding: 10px;
+    }
+    .brief__info__list li {
+        padding-top: 6px;
+    }
 }
 @media (max-width: 650px) {
+    .slider_wrap {
+        width: 300px;
+        
+        margin-bottom: 60px;
+    }
     .pets {
         padding: 42px 0px;
     }
@@ -890,10 +1004,15 @@ header {
         margin-bottom: 45px;
     }
   
-    .pets_cards:nth-child(2) {
+    .two {
         display: none;
     }
+    .button__arrow {
+        top: calc(100% - 145px);
+    }
 }
+
+
 
 /*///////////////////////////*/
 
