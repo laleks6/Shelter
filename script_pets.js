@@ -45,7 +45,15 @@ navList.addEventListener('click', (el) => {
 
 /* pagination */
 
+let arr = [] 
+let arrFirst = []
+let arrMatrix = []
+let numberArr 
+let quantity
+let count = 0
 const blockPaginationCards = document.querySelector(".pagination__cards");
+const pogination = (quantity, numberArr) => {
+
 const petsCards = document.querySelectorAll(".pets_cards");
 const puppePersonImg = document.querySelectorAll(".puppe__person__img");
 const namePuppe = document.querySelectorAll(".name__puppe");
@@ -67,22 +75,17 @@ const ArrowLast= ".///assets///svg///pag-arrow-one-right.svg"
 
 
 
-let arr = [] 
-let arrFirst = []
-let arrMatrix = []
-let number = 8
-let countPagination = 5
-let count = 0
+
 
 //передаем в матрицу мервым массиво id первой страницы
-for(let i = 0; i < number; i++) {
+for(let i = 0; i < numberArr; i++) {
     arrFirst.push(+petsCards[i].id)   
 }
 arrMatrix.push(arrFirst)
 
 // создаем рандомные массивы и передаем их в матрицу
-const creatRundomOneLineMatrix = (number) => {
-    for(let i = 0; i < number; i++) {
+const creatRundomOneLineMatrix = (numberArr) => {
+    for(let i = 0; i < numberArr; i++) {
         arr.push(i)   
     }
     arr.sort(() => Math.random() -0.5)
@@ -91,30 +94,54 @@ const creatRundomOneLineMatrix = (number) => {
 }
 
 // создаем определеное количество массивов в зависимостиот страницы  
-const numberOfPages = (countPagination) =>{
-    for(let i = 0; i < countPagination; i++) {
-        creatRundomOneLineMatrix(number)  
+const numberOfPages = (quantity) =>{
+    for(let i = 0; i < quantity; i++) {
+        creatRundomOneLineMatrix(numberArr)  
     }
     
     
 }
-numberOfPages(countPagination)
+numberOfPages(quantity)
 
 console.log(arrMatrix )
 console.log(arrMatrix[1] + "matrix ----")
 
 // переписывание карточек 
 const fillContent = () => {
+    console.log(count + " = Приходящий коунт проверка для адаптива" )
+if (quantity === 5) {
     if(count < 6 || count > 1) {
         for(let i = 0; i < arrMatrix[count].length; i++) {
-            console.log(puppePersonImg[+arrMatrix[count][i]].src)
-            console.log(`${dataCards[+arrMatrix[count][i]]["img"]}`)
+            //console.log(puppePersonImg[+arrMatrix[count][i]].src)
+            //console.log(`${dataCards[+arrMatrix[count][i]]["img"]}`)
             puppePersonImg[i].src = dataCards[+arrMatrix[count][i]]["img"]
             namePuppe[i].textContent = dataCards[+arrMatrix[count][i]]["name"];
         }
         btnSupCentr.textContent = `${count+1}`
     }
-
+}else if (quantity === 7) {
+    if(count < 8 || count > 1) {
+        for(let i = 0; i < arrMatrix[count].length; i++) {
+            //console.log(puppePersonImg[+arrMatrix[count][i]].src)
+            //console.log(`${dataCards[+arrMatrix[count][i]]["img"]}`)
+            puppePersonImg[i].src = dataCards[+arrMatrix[count][i]]["img"]
+            namePuppe[i].textContent = dataCards[+arrMatrix[count][i]]["name"];
+        }
+        btnSupCentr.textContent = `${count+1}`
+    }
+}else if (quantity === 15) {
+    if(count < 16 || count > 1) {
+        for(let i = 0; i < arrMatrix[count].length; i++) {
+            //console.log(puppePersonImg[+arrMatrix[count][i]].src)
+            //console.log(`${dataCards[+arrMatrix[count][i]]["img"]}`)
+            puppePersonImg[i].src = dataCards[+arrMatrix[count][i]]["img"]
+            namePuppe[i].textContent = dataCards[+arrMatrix[count][i]]["name"];
+        }
+        btnSupCentr.textContent = `${count+1}`
+    }
+}
+    
+console.log(count + " = уходящий ++ коунт проверка для адаптива" )
 }
 const addActivLeftBtn = () => {
     for (let i = 0; i < 2; i++) {
@@ -147,20 +174,22 @@ const addActiveRightBtn = () => {
 }
 // переключение на следующую страницу 
 const goToTheNextPage = () => {
+
     count++
     addActiveRightBtn()
-    if(count > 5){
-        count = 5
+    if(count > quantity){
+        count = quantity
         removeActiveRightBtn()
     }
-    
+
     addActivLeftBtn()
     fillContent()
     
 }
 btnNextPage.addEventListener('click', goToTheNextPage)
+
 const goToTheLastPage = () => {
-    count = 5 
+    count = quantity 
     removeActiveRightBtn()
     addActivLeftBtn()
     fillContent()
@@ -177,6 +206,11 @@ const goToThePastPage = () => {
     fillContent()
     
 }
+if (blockPaginationCards.classList.contains('start')){
+    blockPaginationCards.classList.remove('start')
+    count = 0
+    goToThePastPage()
+}
 btnPastPage.addEventListener('click', goToThePastPage)
 
 const goToTheFirstPage = () => {
@@ -186,6 +220,72 @@ const goToTheFirstPage = () => {
     fillContent()
 }
 btnFirstPage.addEventListener('click', goToTheFirstPage)
+}
+
+   
+    //адаптив погинации
+    const choiceQuantityCards = () => {
+        
+        if(window.innerWidth > 769){
+            console.log(window.innerWidth)
+            quantity = 5
+            numberArr = 8
+            pogination(quantity, numberArr)
+    
+        }else if(window.innerWidth < 769 && window.innerWidth > 625){
+            console.log(window.innerWidth)
+            quantity = 7
+            numberArr = 6
+            pogination(quantity, numberArr)
+        }else if(window.innerWidth < 625){
+            console.log(window.innerWidth)
+            quantity = 15
+            numberArr = 3
+            pogination(quantity, numberArr)
+        }  
+    }
+    choiceQuantityCards()
+    
+    //window.addEventListener('changesize', choiceQuantityCards);
+
+    const smollWithScreen = window.matchMedia('(max-width: 625px)')
+    const normalWithScreen = window.matchMedia('(min-width: 626px) and (max-width: 768px)')
+    const maxlWithScreen = window.matchMedia('(min-width: 769px)')
+    maxlWithScreen.addEventListener('change', () => {
+        console.log(window.innerWidth + ">769")
+        count = 0
+        arr = [] 
+        arrFirst = []
+        arrMatrix = []
+        quantity = 5
+        numberArr = 8
+        blockPaginationCards.classList.add('start')
+        pogination(quantity, numberArr)
+    } )
+    normalWithScreen.addEventListener('change', () => {
+        count = 0
+        arr = [] 
+        arrFirst = []
+        arrMatrix = []
+        console.log(window.innerWidth + "769<")
+        quantity = 7
+        numberArr = 6
+        blockPaginationCards.classList.add('start')
+        pogination(quantity, numberArr)
+    } )
+    smollWithScreen.addEventListener('change', () => {
+        count = 0
+        arr = [] 
+        arrFirst = []
+        arrMatrix = []
+        console.log(window.innerWidth + "600<")
+        quantity = 15
+        numberArr = 3
+        blockPaginationCards.classList.add('start')
+        pogination(quantity, numberArr)
+    }  )
+
+///poppppppppppppppp
 
 const popUp = () => {
     let id
@@ -230,9 +330,6 @@ const popUp = () => {
             
            
             console.log(window.screenTop)
-            
-            
-
    
         })
     })
