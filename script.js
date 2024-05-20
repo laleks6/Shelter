@@ -78,7 +78,7 @@ const popUp = () => {
       creatPopUp();
       blackoutPopUp.classList.toggle("blackout--active");
       document.body.classList.toggle("position__fixes");
-      console.log(window.scrollY + "scropl");
+      //   console.log(window.scrollY + "scropl");
     });
   });
   blackoutPopUp.addEventListener("click", () => {
